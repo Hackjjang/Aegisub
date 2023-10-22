@@ -1,155 +1,156 @@
-## arch1t3cht's Aegisub "fork"
-Download release builds [here](https://github.com/arch1t3cht/Aegisub/releases), or the latest CI builds [here](https://github.com/arch1t3cht/Aegisub/actions).
+## arch1t3cht의 이지서브 "포크"
+릴리스 빌드는 [여기](https://github.com/arch1t3cht/Aegisub/releases) 또는 최신 CI 빌드는 [여기](https://github.com/arch1t3cht/Aegisub/actions)에서 다운로드하세요.
 
-The release page also has detailed list of all changes and new features. If you're interested in the technical details or want to compile yourself, read on.
+릴리스 페이지에는 모든 변경 사항과 새로운 기능에 대한 자세한 목록도 있습니다. 기술적인 세부 사항에 관심이 있거나 직접 컴파일하고 싶다면 계속 읽어보세요.
 
-### Don't we have enough Aegisub forks already??
-We absolutely do, and I'm aware that adding another one [doesn't sound like](https://xkcd.com/927/) a [good idea on paper](https://cdn.discordapp.com/attachments/425357202963038208/1007103606421459004/unknown.png). However,
+### 이미 이지서브 포크가 충분하지 않나요?
+물론 그렇고, 또 다른 포크를 추가하는 것이 [서류상으로는](https://xkcd.com/927/) [좋은 생각이 아닌 것 같다는 것을](https://cdn.discordapp.com/attachments/425357202963038208/1007103606421459004/unknown.png) 알고 있습니다. 하지만,
 
-- None of the existing forks are completely satisfying at the moment:
-  - [wangqr's fork](https://github.com/wangqr/Aegisub) is actively maintained, but focussing more on stability. It's missing most of the modern features.
-  - [AegisubDC](https://github.com/Ristellise/AegisubDC) has the most modern features (in particular video-panning), but is Windows-only and not actively maintained anymore.
-  - [The TypesettingTools fork](https://github.com/TypesettingTools/Aegisub) is the one that will one day become the upstream version and builds relatively effortlessly on all operating systems, but at the moment it's not moving much. It's the base for this fork, and I hope to one day merge most of these additions into it.
-- Only PR'ing the changes in here to various forks would cause even more chaos
-- ~~I try to convince myself that this isn't really a "fork" in the traditional sense - one which aims to provide extended support and stability fixes. It's a collection of new feature additions which I built myself, together with some of the most important new features floating around other forks.~~ At this point it's probably too late to still be saying this. Still, the general mission hasn't changed. This fork collects new features and critical bugfixes, but won't be putting extra time into maintenance aspects like cleanup and refactors. Partly, this is also because any big refactors would make it harder to pull these changes into upstream repositories or future forks.
+- 현재 존재하는 포크 중 어느 것도 완전히 만족스럽지 않습니다:
+  - [wangqr's fork](https://github.com/wangqr/Aegisub)가 활발히 유지되고 있지만 안정성에 더 초점을 맞추고 있습니다. 대부분의 최신 기능이 누락되어 있습니다.
+  - [AegisubDC](https://github.com/Ristellise/AegisubDC)는 가장 최신 기능(특히 비디오 패닝)을 제공하지만 윈도 전용이며 더 이상 활발하게 유지 관리되지 않습니다.
+  - [The TypesettingTools fork](https://github.com/TypesettingTools/Aegisub)는 언젠가 업스트림 버전이 될 것이며 모든 운영 체제에서 비교적 쉽게 빌드할 수 있지만 현재로서는 크게 움직이지 않고 있습니다. 이 포크의 기반이며, 언젠가는 이 추가 기능의 대부분을 이 포크에 병합할 수 있기를 바랍니다.
+- 여기서의 변경 사항을 여러 포크에 홍보하는 것만으로는 더 큰 혼란을 야기할 수 있습니다.
+- 저는 이번 포크가 확장된 지원과 안정성 수정을 목표로 하는 전통적인 의미의 '포크'가 아니라고 스스로를 설득하려고 노력합니다. 다른 포크에서 떠돌아다니는 가장 중요한 새로운 기능들과 함께 제가 직접 만든 새로운 기능들의 모음입니다 ~~ 이 시점에서 여전히 이런 말을 하기에는 너무 늦었을 것입니다. 그래도 일반적인 미션은 변하지 않았습니다. 이 포크는 새로운 기능과 중요한 버그 수정을 수집하지만 정리 및 리팩터와 같은 유지 관리 측면에는 추가 시간을 투입하지 않을 것입니다. 이는 대규모 리팩터링으로 인해 이러한 변경 사항을 업스트림 리포지토리나 향후 포크로 가져오기가 더 어려워지기 때문이기도 합니다.
 
-    While this is usually also the version of Aegisub I'm currently using, I make no promises on stability. **Don't** use this version if you're just looking for any version of Aegisub - this is mostly intended for typesetting and other advanced usage.
+    현재 제가 사용하고 있는 Aegisub 버전도 이 버전이지만, 안정성에 대해서는 장담할 수 없습니다. 이 버전은 주로 조판 및 기타 고급 용도로만 사용해야 하므로 아무 버전이나 찾고 있다면 **사용하지 마세요.**
 
-### Organization
-Being a collection of different feature additions, this repository consists of a set of branches for different features, so that they can easily be merged into other repositories. The [`feature`](https://github.com/arch1t3cht/Aegisub/tree/feature) branch merges together all the features I deem as currently usable. Due to the structure of the repository, I will be force-pushing to this branch and some of the individual branches very frequently, so they're not ideal for basing further branches on.
+### 조직
+이 저장소는 다양한 기능 추가의 모음이기 때문에 다른 저장소에 쉽게 병합할 수 있도록 다양한 기능에 대한 브랜치 집합으로 구성됩니다. ['기능'](https://github.com/arch1t3cht/Aegisub/tree/feature) 브랜치는 현재 사용 가능하다고 판단되는 모든 기능을 병합합니다. 리포지토리의 구조상 이 브랜치와 일부 개별 브랜치를 매우 자주 강제 푸시할 것이므로 추가 브랜치의 기반이 되기에 이상적이지 않습니다.
 
-The `cibuilds` branch makes some CI builds of snapshots of `feature` at relevant points in time.
+`cibuilds` 브랜치는 관련 시점에 '기능'의 스냅샷에 대한 일부 CI 빌드를 만든다.
 
-### Branch/Feature list
-This list is for navigating the repository. Go to the [release page](https://github.com/arch1t3cht/Aegisub/releases) for a more structured changelog.
-- [`folding`](https://github.com/arch1t3cht/Aegisub/tree/folding): Add the ability to visually group and collapse lines in the subtitle grid
-- [`lua_api`](https://github.com/arch1t3cht/Aegisub/tree/lua_api): Add new functions to the Lua automation API, like controlling the selection or cursor in the text edit box
-- [`vector_clip_actions`](https://github.com/arch1t3cht/Aegisub/tree/vector_clip_actions): Make the different modes of the vector clip tool (lines, bezier curves, adding points, etc) bindable to hotkeys
-- [`color_picker_fix2`](https://github.com/arch1t3cht/Aegisub/tree/color_picker_fix2): Add an option (under "Interface") to restrict the color picker to the window, which fixes the color picker on Linux in a lot of cases.
-- [`avisynth`](https://github.com/arch1t3cht/Aegisub/tree/avisynth): Reenable Avisynth support on Windows and enable Avisynth on Linux
-- [`bestsource`](https://github.com/arch1t3cht/Aegisub/tree/bestsource): Add BestSource audio and video source. This source is slower than others by multiple orders of magnitude, but in exchange it can guarantee exact seeking.
-- [`vapoursynth`](https://github.com/arch1t3cht/Aegisub/tree/vapoursynth): Add Vapoursynth audio and video source
-- [`bugfixes`](https://github.com/arch1t3cht/Aegisub/tree/bugfixes): Various fixes necessary for compilation. Most branches are based on this.
-- [`workarounds`](https://github.com/arch1t3cht/Aegisub/tree/workarounds): Same as `bugfixes`, but these are hacky fixes that probably shouldn't be pulled without more work.
-- [`fixes`](https://github.com/arch1t3cht/Aegisub/tree/fixes): Miscellaneous bugfixes
-- [`misc`](https://github.com/arch1t3cht/Aegisub/tree/misc): Other miscellaneous additions
-- [`wangqr_gui`](https://github.com/arch1t3cht/Aegisub/tree/wangqr_gui): Merge wangqr's changes regarding the GUI. In particular, add high-DPI compatibility.
-- [`misc_dc`](https://github.com/arch1t3cht/Aegisub/tree/misc_dc): Miscellaneous changes taken from AegisubDC
-- [`xa2-ds`](https://github.com/arch1t3cht/Aegisub/tree/xa2-ds): Add XAudio2 backend and allow stereo playback for some other backends, by wangqr and Shinon.
-- [`stereo`](https://github.com/arch1t3cht/Aegisub/tree/stereo): Add multi-channel support for the other audio backends where possible.
-- [`video_panning_option`](https://github.com/arch1t3cht/Aegisub/tree/video_panning_option): Merge [moex3's video zoom and panning](https://github.com/TypesettingTools/Aegisub/pull/150), with several bugfixes and more options to control zoom behavior
-- [`spectrum-frequency-mapping`](https://github.com/arch1t3cht/Aegisub/tree/spectrum-frequency-mapping): Merge EleonoreMizo's [spectrum display improvements](https://github.com/TypesettingTools/Aegisub/pull/94), and also make Shift+Scroll vertically zoom the audio display
-- [`wangqr_time_video`](https://github.com/arch1t3cht/Aegisub/tree/wangqr_time_video): Merge wangqr's feature adding a tool for timing subtitles to changes in the video
+### 브랜치/기능 목록
+이 목록은 저장소를 탐색하기 위한 것입니다. 보다 체계적인 변경 로그는 [릴리스 페이지](https://github.com/arch1t3cht/Aegisub/releases)로 이동하세요.
+- [`접기`](https://github.com/arch1t3cht/Aegisub/tree/folding) : 자막 그리드에서 선을 시각적으로 그룹화하고 접는 기능을 추가합니다.
+- [`lua_api`](https://github.com/arch1t3cht/Aegisub/tree/lua_api) : 텍스트 편집 상자에서 선택 또는 커서 제어와 같은 새로운 기능을 Lua 자동화 API에 추가합니다.
+- [`vector_clip_actions`](https://github.com/arch1t3cht/Aegisub/tree/vector_clip_actions) : 벡터 클립 도구의 다양한 모드(선, 베지어 곡선, 포인트 추가 등)를 단축키에 할당할 수 있도록 합니다.
+- [`color_picker_fix2`](https://github.com/arch1t3cht/Aegisub/tree/color_picker_fix2) : 색상 선택기를 창으로 제한하는 옵션('인터페이스' 아래)을 추가하여 리눅스에서 색상 선택기가 많은 경우 수정됩니다.
+- [`avisynth`](https://github.com/arch1t3cht/Aegisub/tree/avisynth) : 윈도에서 Avisynth 지원을 다시 활성화하고 리눅스에서 Avisynth를 활성화합니다.
+- [`bestsource`](https://github.com/arch1t3cht/Aegisub/tree/bestsource) : BestSource 오디오 및 비디오 소스를 추가합니다. 이 소스는 다른 소스보다 몇 배나 느리지만 그 대신 정확한 탐색을 보장할 수 있습니다.
+- [`vapoursynth`](https://github.com/arch1t3cht/Aegisub/tree/vapoursynth) : Vapoursynth 오디오 및 비디오 소스 추가
+- [`bugfixes`](https://github.com/arch1t3cht/Aegisub/tree/bugfixes) : 컴파일에 필요한 다양한 수정. 대부분의 브랜치는 이것을 기반으로 합니다.
+- [`workarounds`](https://github.com/arch1t3cht/Aegisub/tree/workarounds) : `버그 수정` 같지만, 더 많은 작업 없이는 가져와서는 안 되는 해킹성 수정입니다.
+- [`fixes`](https://github.com/arch1t3cht/Aegisub/tree/fixes): 기타 버그 수정
+- [`misc`](https://github.com/arch1t3cht/Aegisub/tree/misc): 기타 기타 추가
+- [`wangqr_gui`](https://github.com/arch1t3cht/Aegisub/tree/wangqr_gui): GUI와 관련된 wangqr의 변경 사항을 병합합니다. 특히, 높은
+- - [`wangqr_gui`](https://github.com/arch1t3cht/Aegisub/tree/wangqr_gui): GUI와 관련된 wangqr의 변경 사항을 병합합니다. 특히 높은 DPI 호환성을 추가하세요.
+- [`misc_dc`](https://github.com/arch1t3cht/Aegisub/tree/misc_dc): AegisubDC에서 가져온 기타 변경 사항
+- [`xa2-ds`](https://github.com/arch1t3cht/Aegisub/tree/xa2-ds): XAudio2 백엔드를 추가하고 wangqr 및 Shinon의 일부 다른 백엔드에 대한 스테레오 재생을 허용합니다.
+- [`stereo`](https://github.com/arch1t3cht/Aegisub/tree/stereo): 가능한 경우 다른 오디오 백엔드에 대한 다중 채널 지원을 추가합니다.
+- [`video_panning_option`](https://github.com/arch1t3cht/Aegisub/tree/video_panning_option): [moex3의 비디오 확대/축소 및 패닝](https://github.com/TypesettingTools/Aegisub/pull/150) 병합, 몇 가지 버그 수정 및 확대/축소 동작 제어를 위한 추가 옵션 포함
+- [`spectrum-frequency-mapping`](https://github.com/arch1t3cht/Aegisub/tree/spectrum-주파수-mapping): EleonoreMizo의 [스펙트럼 디스플레이 개선](https://github.com/TypesettingTools/) 병합 Aegisub/pull/94), Shift+Scroll을 사용하여 오디오 디스플레이를 수직으로 확대/축소할 수도 있습니다.
+- [`wangqr_time_video`](https://github.com/arch1t3cht/Aegisub/tree/wangqr_time_video): 동영상 변경 사항에 자막 타이밍 도구를 추가하는 wangqr 기능을 병합합니다.
 
-### Troubleshooting
-I'll gladly take any bug reports, but if you encounter an issue, please check first if it occurs only on my fork, or also on [earlier TSTools builds](https://github.com/TypesettingTools/Aegisub/actions).
-If it wasn't introduced by my fork, I can still take a look, but I can't promise anything.
+### 문제 해결
+버그 보고서를 기꺼이 받아들이겠지만, 문제가 발생하면 먼저 내 포크에서만 발생하는지, 아니면 [이전 TSTools 빌드](https://github.com/TypesettingTools/Aegisub/actions)에서도 발생하는지 확인하세요. .
+내 포크로 소개되지 않았다면 살펴볼 수는 있지만 약속할 수는 없습니다.
 
-You can find me for support on various servers, including the cave and the TSTools server linked below.
+아래 링크된 Cave 및 TSTools 서버를 포함한 다양한 서버에서 지원을 받으려면 저를 찾으세요.
 
-#### Aegisub on Linux doesn't recognize my GTK theme
-This is probably because you're building with wxgtk2. Building with wxgtk3 fixes this, but causes some problems of its own (notably the broken color picker, occasional crashes when opening file dialogs from automation scripts, and general layouting issues).
+#### Linux의 Aegisub이 내 GTK 테마를 인식하지 못합니다.
+이는 아마도 wxgtk2를 사용하여 빌드하고 있기 때문일 것입니다. wxgtk3을 사용하여 빌드하면 이 문제가 해결되지만 그 자체로 몇 가지 문제가 발생합니다(특히 깨진 색상 선택기, 자동화 스크립트에서 파일 대화 상자를 열 때 가끔 충돌 및 일반 레이아웃 문제).
 
-The exact way of switching depends on your Linux distribution, but essentially you need to ensure that `wx-config` or the next best variant of it points to wxgtk3. If it points to wxgtk2 by default and deinstalling wxgtk2 isn't an option, you can also temporarily move it out of the path or use a `native-file` in your meson project. Then, fully reconfigure meson using `meson configure --clearcache` and `meson setup --reconfigure`.
+정확한 전환 방법은 Linux 배포판에 따라 다르지만 기본적으로 `wx-config` 또는 그 다음으로 가장 좋은 변형이 wxgtk3을 가리키는지 확인해야 합니다. 기본적으로 wxgtk2를 가리키고 wxgtk2 제거가 옵션이 아닌 경우 임시로 경로 밖으로 이동하거나 중간자 프로젝트에서 `native-file`을 사용할 수도 있습니다. 그런 다음 'mesonconfigure --clearcache' 및 'meson setup --reconfigure'를 사용하여 meson을 완전히 재구성하세요.
 
-#### The video is desynced / Frames don't appear at the right time
-This is probably due to the ffms2 seeking bug ([#394](https://github.com/FFMS/ffms2/issues/394)). On Windows, this specific regression shouldn't happen anymore. On Linux, you need to install the latest git version of ffms2 - for example the [`ffms2-git`](https://aur.archlinux.org/packages/ffms2-git) AUR package on Arch linux, or just compile it yourself.
+#### 동영상이 비동기화됨/프레임이 적절한 시간에 표시되지 않음
+이는 아마도 ffms2 탐색 버그([#394](https://github.com/FFMS/ffms2/issues/394)) 때문일 수 있습니다. Windows에서는 이러한 특정 회귀가 더 이상 발생하지 않습니다. Linux에서는 ffms2의 최신 git 버전을 설치해야 합니다. 예를 들어 Arch linux의 [`ffms2-git`](https://aur.archlinux.org/packages/ffms2-git) AUR 패키지를 설치하거나 그냥 컴파일해야 합니다. 스스로요.
 
-If it's not because of this particular bug, you can also try an alternative video source like LSMASHSource via Avisynth or Vapoursynth, or BestSource.
+이 특정 버그 때문이 아닌 경우 Avisynth, Vapoursynth 또는 BestSource를 통해 LSMASHSource와 같은 대체 비디오 소스를 사용해 볼 수도 있습니다.
 
-#### On Windows: Aegisub crashes whenever I open a video
-If you're compiling yourself, try adding `--force-fallback-for=zlib` to the meson options.
+#### Windows: 비디오를 열 때마다 Aegisub가 충돌합니다.
+직접 컴파일하는 경우 meson 옵션에 `--force-fallback-for=zlib`를 추가해 보세요.
 
 
-### Compilation
-If you're just looking to install Aegisub, you might want to check out the [releases page](https://github.com/arch1t3cht/Aegisub/releases) or the [CI builds](https://github.com/arch1t3cht/Aegisub/actions) first.
+### 편집
+Aegisub만 설치하려는 경우 [릴리스 페이지](https://github.com/arch1t3cht/Aegisub/releases) 또는 [CI 빌드](https://github.com)를 확인하는 것이 좋습니다. /arch1t3cht/Aegisub/actions) 먼저.
 
-For compilation on Windows, see the TSTools documentation below. Also check the [GitHub workflow](https://github.com/arch1t3cht/Aegisub/blob/cibuilds/.github/workflows/ci.yml) for the project arguments.
+Windows에서의 컴파일에 대해서는 아래 TSTools 설명서를 참조하세요. 또한 프로젝트 인수에 대해서는 [GitHub 워크플로](https://github.com/arch1t3cht/Aegisub/blob/cibuilds/.github/workflows/ci.yml)를 확인하세요.
 
-On Arch Linux, there is an AUR package called [aegisub-arch1t3cht-git](https://aur.archlinux.org/packages/aegisub-arch1t3cht-git). It's not maintained by me but seems to work.
+Arch Linux에는 [aegisub-arch1t3cht-git](https://aur.archlinux.org/packages/aegisub-arch1t3cht-git)이라는 AUR 패키지가 있습니다. 내가 관리하지는 않지만 작동하는 것 같습니다.
 
-On other Linux distributions or for manual compilation you can use this package or the [TSTools PKGBUILD](https://aur.archlinux.org/packages/aegisub-ttools-meson-git) as a reference, in particular for installing the necessary dependencies if you don't want to compile them yourself.
-If all dependencies are installed:
-- Install Meson
-- Clone the repository
-- In the repository, run `meson setup build --buildtype=release` for the default configuration. See below for further options.
-- `cd` to the `build` directory and run `ninja`
-- You'll get an `aegisub` binary in the `build` folder. To install it to a system-wide location, run `ninja install`. To install to `/usr` instead of `/usr/local`, pass `--prefix=/usr` when configuring or reconfiguring meson.
-- When recompiling after pulling new commits, skip the `meson setup` setup and just immediately run `ninja` from the build directory - even when the build configuration changed.
+다른 Linux 배포판이나 수동 컴파일의 경우 특히 필요한 설치를 위해 이 패키지나 [TSTools PKGBUILD](https://aur.archlinux.org/packages/aegisub-ttools-meson-git)를 참조로 사용할 수 있습니다. 직접 컴파일하고 싶지 않은 경우 종속성.
+모든 종속성이 설치된 경우:
+- 중간자 설치
+- 저장소를 복제합니다.
+- 저장소에서 기본 구성을 위해 `meson setup build --buildtype=release`를 실행합니다. 추가 옵션은 아래를 참조하세요.
+- `build` 디렉토리에 `cd`를 추가하고 `ninja`를 실행합니다.
+- `build` 폴더에 `aegisub` 바이너리가 생성됩니다. 시스템 전체 위치에 설치하려면 'ninja install'을 실행하세요. `/usr/local` 대신 `/usr`에 설치하려면 meson을 구성하거나 재구성할 때 `--prefix=/usr`을 전달하세요.
+- 새 커밋을 가져온 후 다시 컴파일할 때 'meson setup' 설정을 건너뛰고 빌드 디렉터리에서 즉시 'ninja'를 실행하세요. 빌드 구성이 변경된 경우에도 마찬가지입니다.
 
-#### Compilation flags
-Some features are not enabled by default. To enable them, pass `-D<feature>=enabled` with the `meson setup` command:
+#### 컴파일 플래그
+일부 기능은 기본적으로 활성화되어 있지 않습니다. 이를 활성화하려면 `meson setup` 명령과 함께 `-D<feature>=enabled`를 전달하세요.
 
-- `-Davisynth=enabled`: Avisynth support
-- `-Dbestsource=enabled`: BestSource
-- `-Dvapoursynth=enabled`: Vapoursynth support
+- `-Davisynth=enabled` : Avisynth 지원
+- `-Dbestsource=enabled` : BestSource
+- `-Dvapoursynth=enabled` : Vapoursynth 지원
 
-You can also disable options that are active by default in the same way. Check the file `meson_options.txt` for all options.
+동일한 방식으로 기본적으로 활성화된 옵션을 비활성화할 수도 있습니다. 모든 옵션은 `meson_options.txt` 파일을 확인하세요.
 
-To change the options of an existing build directory, run `meson setup --reconfigure <new arguments>` from inside the `build` directory.
+기존 빌드 디렉터리의 옵션을 변경하려면 `build` 디렉터리 내부에서 `meson setup --reconfigure <new arguments>`를 실행하세요.
 
-### Dependencies
-Apart from the dependencies for the TSTools version, there are some additional dependencies. These are cloned and compiled from scratch if not found, but you might want to install binaries instead:
-- `jansson`: For BestSource
-- `ffmpeg`: Becomes a direct dependency when compiling with BestSource
-- `avisynth` (or `avisynthplus`): Optional run-time dependency for the Avisynth source
-- `vapoursynth`: Optional run-time dependency for the VapourSynth source
+### 종속성
+TSTools 버전에 대한 종속성 외에도 몇 가지 추가 종속성이 있습니다. 찾을 수 없는 경우 처음부터 복제 및 컴파일되지만 대신 바이너리를 설치할 수도 있습니다.
+- `jansson` : BestSource용
+- `ffmpeg` : BestSource로 컴파일할 때 직접적인 종속성이 됩니다.
+- `avisynth`(또는 `avisynthplus`) : Avisynth 소스에 대한 선택적 런타임 종속성
+- `vapoursynth` : VapourSynth 소스에 대한 선택적 런타임 종속성
 
-   The following VapourSynth plugins are used by the default scripts set in the default configuration:
-   - [`lsmas`](https://github.com/AkarinVS/L-SMASH-Works): For LWLibavSource
-   - [`bas`](https://github.com/vapoursynth/bestaudiosource): For BestAudioSource
-   - [`wwxd`](https://github.com/dubhater/vapoursynth-wwxd) and [`scxvid`](https://github.com/dubhater/vapoursynth-scxvid) (depending on settings): For keyframe generation
+    다음 VapourSynth 플러그인은 기본 구성에 설정된 기본 스크립트에 의해 사용됩니다:
+    - [`lsmas`](https://github.com/AkarinVS/L-SMASH-Works) : LWLibavSource용
+    - [`bas`](https://github.com/vapoursynth/bestaudiosource) : BestAudioSource용
+    - [`wwxd`](https://github.com/dubhater/vapoursynth-wwxd) 및 [`scxvid`](https://github.com/dubhater/vapoursynth-scxvid)(설정에 따라 다름) : 키프레임용 세대
 
 
 # Aegisub
 
-For binaries and general information [see the homepage](http://www.aegisub.org).
+바이너리 및 일반정보는 [홈페이지 참조](http://www.aegisub.org)를 참조하세요.
 
-The bug tracker can be found at https://github.com/Aegisub/Aegisub/issues.
+버그 추적기는 https://github.com/Aegisub/Aegisub/issues에서 찾을 수 있습니다.
 
-Support is available on [Discord](https://discord.com/invite/AZaVyPr) or [IRC](irc://irc.rizon.net/aegisub).
+지원은 [Discord](https://discord.com/invite/AZaVyPr) 또는 [IRC](irc://irc.rizon.net/aegisub)에서 가능합니다.
 
-## Building Aegisub
+## Aegisub 빌드
 
-### Windows
+### 윈도
 
-Prerequisites:
+전제 조건 :
 
-1. Visual Studio (Community edition of any recent version is fine)
-2. The June 2010 DirectX SDK (the final release before DirectSound was dropped)
-3. Python 3
+1. Visual Studio(최신 버전의 커뮤니티 에디션이면 충분)
+2. 2010년 6월 DirectX SDK(DirectSound가 삭제되기 전 최종 릴리스)
+3. 파이썬 3
 4. Meson
 5. CMake
-6. Powershell execution policy set to Unrestricted
+6. Powershell 실행 정책이 무제한으로 설정됨
 
-There are a few optional dependencies that must be installed and on your PATH:
+경에 설치해야 하는 몇 가지 선택적 종속성이 있습니다.
 
-1. msgfmt, to build the translations
-2. InnoSetup, to build the regular installer
-3. 7zip, to build the regular installer
-4. Moonscript, to build the regular installer
+1. msgfmt, 번역 작성
+2. InnoSetup, 일반 설치 프로그램 빌드
+3. 7zip, 일반 설치 프로그램 빌드
+4. 일반 설치 프로그램을 빌드하기 위한 Moonscript
 
-All other dependencies are either stored in the repository or are included as submodules.
+다른 모든 종속성은 저장소에 저장되거나 하위 모듈로 포함됩니다.
 
-Building:
+빌드 :
 
-1. Clone Aegisub's repository: `git clone https://github.com/arch1t3cht/Aegisub.git`
-2. From the Visual Studio "x64 Native Tools Command Prompt", generate the build directory: `meson build -Ddefault_library=static` (if building for release, add `--buildtype=release`)
-3. Build with `cd build` and `ninja`
+1. Aegisub 저장소 복제: `git clone https://github.com/arch1t3cht/Aegisub.git`
+2. Visual Studio "x64 기본 도구 명령 프롬프트"에서 빌드 디렉터리 `meson build -Ddefault_library=static`(릴리스용으로 빌드하는 경우 `--buildtype=release` 추가)을 생성합니다.
+3. `cd build`와 `ninja`를 사용하여 빌드
 
-You should now have a binary: `aegisub.exe`.
+이제 `aegisub.exe`라는 바이너리가 있어야 합니다.
 
-Installer:
+설치 프로그램 :
 
-You can generate the installer with `ninja win-installer` after a successful build. This assumes a working internet connection and installation of the optional dependencies.
+성공적인 빌드 후에 `ninja win-installer`를 사용하여 설치 프로그램을 생성할 수 있습니다. 이는 인터넷 연결이 작동하고 선택적 종속성이 설치되어 있다고 가정합니다.
 
-You can generate the portable zip with `ninja win-portable` after a successful build.
+성공적인 빌드 후에 `ninja win-portable`을 사용하여 휴대용 zip을 생성할 수 있습니다.
 
 ### OS X
 
-A vaguely recent version of Xcode and the corresponding command-line tools are required.
+막연하게 최신 버전의 Xcode와 해당 명령줄 도구가 필요합니다.
 
-For personal usage, you can use pip and homebrew to install almost all of Aegisub's dependencies:
+개인적인 용도의 경우 pip 및 홈브류를 사용하여 거의 모든 Aegisub의 종속성을 설치할 수 있습니다.
 
     pip3 install meson
     brew install cmake ninja pkg-config  libass boost zlib ffms2 fftw hunspell
@@ -157,9 +158,9 @@ For personal usage, you can use pip and homebrew to install almost all of Aegisu
     export CPPFLAGS="-I/usr/local/opt/icu4c/include"
     export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 
-Once the dependencies are installed, build Aegisub with `meson build && meson compile -C build`.
+종속성이 설치되면 'meson build && meson compile -C build'를 사용하여 Aegisub를 빌드합니다.
 
-#### Build dmg
+#### dmg 빌드
 
 ```bash
 meson build_static -Ddefault_library=static -Dbuildtype=debugoptimized -Dbuild_osx_bundle=true -Dlocal_boost=true
@@ -169,18 +170,18 @@ meson compile osx-bundle -C build_static
 meson compile osx-build-dmg -C build_static
 ```
 
-## Updating Moonscript
+## Moonscript 업데이트
 
-From within the Moonscript repository, run `bin/moon bin/splat.moon -l moonscript moonscript/ > bin/moonscript.lua`.
-Open the newly created `bin/moonscript.lua`, and within it make the following changes:
+Moonscript 저장소 내에서 `bin/moon bin/splat.moon -l moonscript moonscript/ > bin/moonscript.lua`를 실행하세요.
+새로 생성된 `bin/moonscript.lua`를 열고 그 안에서 다음과 같이 변경합니다.
 
-1. Prepend the final line of the file, `package.preload["moonscript"]()`, with a `return`, producing `return package.preload["moonscript"]()`.
-2. Within the function at `package.preload['moonscript.base']`, remove references to `moon_loader`, `insert_loader`, and `remove_loader`. This means removing their declarations, definitions, and entries in the returned table.
-3. Within the function at `package.preload['moonscript']`, remove the line `_with_0.insert_loader()`.
+1. 파일의 마지막 줄 `package.preload["moonscript"]()` 앞에 `return`을 추가하여 `return package.preload["moonscript"]()`를 생성합니다.
+2. `package.preload['moonscript.base']`의 함수 내에서 `moon_loader`, `insert_loader` 및 `remove_loader`에 대한 참조를 제거합니다. 이는 반환된 테이블에서 선언, 정의 및 항목을 제거하는 것을 의미합니다.
+3. `package.preload['moonscript']`의 함수 내에서 `_with_0.insert_loader()` 줄을 제거합니다.
 
-The file is now ready for use, to be placed in `automation/include` within the Aegisub repo.
+이제 파일을 사용할 준비가 되었으며 Aegisub 저장소 내의 `automation/include`에 배치됩니다.
 
-## License
+## 라이선스
 
-All files in this repository are licensed under various GPL-compatible BSD-style licenses; see LICENCE and the individual source files for more information.
-The official Windows and OS X builds are GPLv2 due to including fftw3.
+이 저장소의 모든 파일은 다양한 GPL 호환 BSD 스타일 라이선스에 따라 라이선스가 부여됩니다. 자세한 내용은 라이선스 및 개별 소스 파일을 참조하세요.
+공식 윈도 및 OS X 빌드는 fftw3을 포함하므로 GPLv2입니다.

@@ -48,30 +48,30 @@
 
 아래 링크된 Cave 및 TSTools 서버를 포함한 다양한 서버에서 지원을 받으려면 저를 찾으세요.
 
-#### Linux의 Aegisub이 내 GTK 테마를 인식하지 못합니다.
+#### 리눅스의 Aegisub이 내 GTK 테마를 인식하지 못합니다.
 이는 아마도 wxgtk2를 사용하여 빌드하고 있기 때문일 것입니다. wxgtk3을 사용하여 빌드하면 이 문제가 해결되지만 그 자체로 몇 가지 문제가 발생합니다(특히 깨진 색상 선택기, 자동화 스크립트에서 파일 대화 상자를 열 때 가끔 충돌 및 일반 레이아웃 문제).
 
-정확한 전환 방법은 Linux 배포판에 따라 다르지만 기본적으로 `wx-config` 또는 그 다음으로 가장 좋은 변형이 wxgtk3을 가리키는지 확인해야 합니다. 기본적으로 wxgtk2를 가리키고 wxgtk2 제거가 옵션이 아닌 경우 임시로 경로 밖으로 이동하거나 중간자 프로젝트에서 `native-file`을 사용할 수도 있습니다. 그런 다음 'mesonconfigure --clearcache' 및 'meson setup --reconfigure'를 사용하여 meson을 완전히 재구성하세요.
+정확한 전환 방법은 리눅스 배포판에 따라 다르지만 기본적으로 `wx-config` 또는 그 다음으로 가장 좋은 변형이 wxgtk3을 가리키는지 확인해야 합니다. 기본적으로 wxgtk2를 가리키고 wxgtk2 제거가 옵션이 아닌 경우 임시로 경로 밖으로 이동하거나 중간자 프로젝트에서 `native-file`을 사용할 수도 있습니다. 그런 다음 'mesonconfigure --clearcache' 및 'meson setup --reconfigure'를 사용하여 meson을 완전히 재구성하세요.
 
 #### 동영상이 비동기화됨/프레임이 적절한 시간에 표시되지 않음
-이는 아마도 ffms2 탐색 버그([#394](https://github.com/FFMS/ffms2/issues/394)) 때문일 수 있습니다. Windows에서는 이러한 특정 회귀가 더 이상 발생하지 않습니다. Linux에서는 ffms2의 최신 git 버전을 설치해야 합니다. 예를 들어 Arch linux의 [`ffms2-git`](https://aur.archlinux.org/packages/ffms2-git) AUR 패키지를 설치하거나 그냥 컴파일해야 합니다. 스스로요.
+이는 아마도 ffms2 탐색 버그([#394](https://github.com/FFMS/ffms2/issues/394)) 때문일 수 있습니다. 윈도에서는 이러한 특정 회귀가 더 이상 발생하지 않습니다. 리눅스에서는 ffms2의 최신 git 버전을 설치해야 합니다. 예를 들어 아치 리눅스의 [`ffms2-git`](https://aur.archlinux.org/packages/ffms2-git) AUR 패키지를 설치하거나 그냥 컴파일해야 합니다. 스스로요.
 
 이 특정 버그 때문이 아닌 경우 Avisynth, Vapoursynth 또는 BestSource를 통해 LSMASHSource와 같은 대체 비디오 소스를 사용해 볼 수도 있습니다.
 
-#### Windows: 비디오를 열 때마다 Aegisub가 충돌합니다.
+#### 윈도 : 비디오를 열 때마다 Aegisub가 충돌합니다.
 직접 컴파일하는 경우 meson 옵션에 `--force-fallback-for=zlib`를 추가해 보세요.
 
 
 ### 편집
 Aegisub만 설치하려는 경우 [릴리스 페이지](https://github.com/arch1t3cht/Aegisub/releases) 또는 [CI 빌드](https://github.com)를 확인하는 것이 좋습니다. /arch1t3cht/Aegisub/actions) 먼저.
 
-Windows에서의 컴파일에 대해서는 아래 TSTools 설명서를 참조하세요. 또한 프로젝트 인수에 대해서는 [GitHub 워크플로](https://github.com/arch1t3cht/Aegisub/blob/cibuilds/.github/workflows/ci.yml)를 확인하세요.
+윈도에서의 컴파일에 대해서는 아래 TSTools 설명서를 참조하세요. 또한 프로젝트 인수에 대해서는 [GitHub 워크플로](https://github.com/arch1t3cht/Aegisub/blob/cibuilds/.github/workflows/ci.yml)를 확인하세요.
 
-Arch Linux에는 [aegisub-arch1t3cht-git](https://aur.archlinux.org/packages/aegisub-arch1t3cht-git)이라는 AUR 패키지가 있습니다. 내가 관리하지는 않지만 작동하는 것 같습니다.
+아치 리눅스에는 [aegisub-arch1t3cht-git](https://aur.archlinux.org/packages/aegisub-arch1t3cht-git)이라는 AUR 패키지가 있습니다. 내가 관리하지는 않지만 작동하는 것 같습니다.
 
-다른 Linux 배포판이나 수동 컴파일의 경우 특히 필요한 설치를 위해 이 패키지나 [TSTools PKGBUILD](https://aur.archlinux.org/packages/aegisub-ttools-meson-git)를 참조로 사용할 수 있습니다. 직접 컴파일하고 싶지 않은 경우 종속성.
-모든 종속성이 설치된 경우:
-- 중간자 설치
+다른 리눅스 배포판이나 수동 컴파일의 경우 특히 필요한 설치를 위해 이 패키지나 [TSTools PKGBUILD](https://aur.archlinux.org/packages/aegisub-ttools-meson-git)를 참조로 사용할 수 있습니다. 직접 컴파일하고 싶지 않은 경우 종속성.
+모든 종속성이 설치된 경우 :
+- Meson 설치
 - 저장소를 복제합니다.
 - 저장소에서 기본 구성을 위해 `meson setup build --buildtype=release`를 실행합니다. 추가 옵션은 아래를 참조하세요.
 - `build` 디렉토리에 `cd`를 추가하고 `ninja`를 실행합니다.

@@ -1,10 +1,10 @@
-## arch1t3cht의 이지서브 "포크"
+## arch1t3cht's Aegisub "fork"
 릴리스 빌드는 [여기](https://github.com/arch1t3cht/Aegisub/releases) 또는 최신 CI 빌드는 [여기](https://github.com/arch1t3cht/Aegisub/actions)에서 다운로드하세요.
 
 릴리스 페이지에는 모든 변경 사항과 새로운 기능에 대한 자세한 목록도 있습니다. 기술적인 세부 사항에 관심이 있거나 직접 컴파일하고 싶다면 계속 읽어보세요.
 
-### 이미 이지서브 포크가 충분하지 않나요?
-물론 그렇고, 또 다른 포크를 추가하는 것이 [서류상으로는](https://xkcd.com/927/) [좋은 생각이 아닌 것 같다는 것을](https://cdn.discordapp.com/attachments/425357202963038208/1007103606421459004/unknown.png) 알고 있습니다. 하지만,
+### 이미 Aegisub 포크가 충분하지 않나요?
+물론 그렇고, 또 다른 포크를 추가하는 것이 [서류상으로는](https://xkcd.com/927/) [좋은 생각이 아닌 것 같다는 건](https://cdn.discordapp.com/attachments/425357202963038208/1007103606421459004/unknown.png) 알고 있습니다. 하지만,
 
 - 현재 존재하는 포크 중 어느 것도 완전히 만족스럽지 않습니다:
   - [wangqr's fork](https://github.com/wangqr/Aegisub)가 활발히 유지되고 있지만 안정성에 더 초점을 맞추고 있습니다. 대부분의 최신 기능이 누락되어 있습니다.
@@ -22,7 +22,7 @@
 
 ### 브랜치/기능 목록
 이 목록은 저장소를 탐색하기 위한 것입니다. 보다 체계적인 변경 로그는 [릴리스 페이지](https://github.com/arch1t3cht/Aegisub/releases)로 이동하세요.
-- [`접기`](https://github.com/arch1t3cht/Aegisub/tree/folding) : 자막 그리드에서 선을 시각적으로 그룹화하고 접는 기능을 추가합니다.
+- [`folding`](https://github.com/arch1t3cht/Aegisub/tree/folding) : 자막 그리드에서 선을 시각적으로 그룹화하고 접는 기능을 추가합니다.
 - [`lua_api`](https://github.com/arch1t3cht/Aegisub/tree/lua_api) : 텍스트 편집 상자에서 선택 또는 커서 제어와 같은 새로운 기능을 Lua 자동화 API에 추가합니다.
 - [`vector_clip_actions`](https://github.com/arch1t3cht/Aegisub/tree/vector_clip_actions) : 벡터 클립 도구의 다양한 모드(선, 베지어 곡선, 포인트 추가 등)를 단축키에 할당할 수 있도록 합니다.
 - [`color_picker_fix2`](https://github.com/arch1t3cht/Aegisub/tree/color_picker_fix2) : 색상 선택기를 창으로 제한하는 옵션('인터페이스' 아래)을 추가하여 리눅스에서 색상 선택기가 많은 경우 수정됩니다.
